@@ -24,29 +24,27 @@ namespace Tripledot.Adventure.Analytics
         private static readonly string NewEnemyType = $"<b><color=#CF5959>NEW_ENEMY_TYPE</color></b>";
         private static readonly string EnemySpawned = $"<b><color=#59BBCF>ENEMY_SPAWNED</color></b>";
         
-        private readonly HashSet<EnemyType> knownEnemyTypes;
+        private readonly IKnownCreaturesRepository knownCreatures;
         private readonly ILogger logger;
 
-        public AlternativeEnemyAnalyticsTracker(ILogger logger)
+        public AlternativeEnemyAnalyticsTracker(ILogger logger, IKnownCreaturesRepository knownCreaturesRepository)
         {
             this.logger = logger;
-            this.knownEnemyTypes = new HashSet<EnemyType>();
+            this.knownCreatures = knownCreaturesRepository;
         }
         
-        public void TrackEnemy(IEnemy enemy)
+        public void TrackEnemy(IEnemy enemy, bool onlyIfUnknown = false)
         {
-            if (enemy == null) {
-                throw new ArgumentNullException(nameof(enemy));
-            }
-
             var enemyType = EnemyUtilities.GetEnemyType(enemy.EnemyType);
-            if (!this.knownEnemyTypes.Contains(enemy.EnemyType)) {
+            if (!this.knownCreatures.IsEnemyTypeKnown(enemy.EnemyType)) {
                 // Track NewEnemyType event
                 this.logger.Log(LoggerTag, $"<size=25>{NewEnemyType} - First encounter with an {enemyType}.</size>");
-                this.knownEnemyTypes.Add(enemy.EnemyType);
+                this.knownCreatures.SetEnemyTypeAsKnown(enemy.EnemyType);
             }
-            // Track EnemySpawned
-            this.logger.Log(LoggerTag, $"<size=25>{EnemySpawned} - Spawned {enemyType}</size>");
+            if (!onlyIfUnknown) {
+                // Track EnemySpawned
+                this.logger.Log(LoggerTag, $"<size=25>{EnemySpawned} - Spawned {enemyType}</size>");
+            }
         }
     }
 }

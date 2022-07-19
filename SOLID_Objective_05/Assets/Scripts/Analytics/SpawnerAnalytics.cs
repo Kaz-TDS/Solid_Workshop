@@ -23,13 +23,14 @@ namespace Tripledot.Adventure.Analytics
             this.bossTracker = bossTracker;
         }
         
-        public void TrackEnemy(IEnemy enemy)
+        public void TrackEnemy(IEnemy enemy, bool onlyIfUnknown = false)
         {
-            this.enemyTracker.TrackEnemy(enemy);
+            this.enemyTracker.TrackEnemy(enemy, onlyIfUnknown);
         }
 
         public void TrackBoss(IBoss boss)
         {
+            this.enemyTracker.TrackEnemy(boss, true);
             this.bossTracker.TrackBoss(boss);
         }
     }

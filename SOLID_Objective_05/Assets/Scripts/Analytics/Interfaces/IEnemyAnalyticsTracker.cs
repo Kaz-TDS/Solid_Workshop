@@ -13,6 +13,6 @@ namespace Tripledot.Adventure.Analytics.Interfaces
 {
     public interface IEnemyAnalyticsTracker
     {
-        void TrackEnemy(IEnemy enemy);
+        void TrackEnemy(IEnemy enemy, bool onlyIfUnknown = false);
     }
 }

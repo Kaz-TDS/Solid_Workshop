@@ -8,6 +8,7 @@
  */
 
 using Tripledot.Adventure.Analytics;
+using Tripledot.Adventure.Analytics.Interfaces;
 using Tripledot.Adventure.Factories;
 using Tripledot.Adventure.Factories.Interfaces;
 using Tripledot.Adventure.Logging;
@@ -20,19 +21,21 @@ namespace Tripledot.Adventure
     {
         private static readonly IEnemySpawner EnemySpawner;
         private static readonly IEnemySpawner AlternativeEnemySpawner;
+        private static readonly IKnownCreaturesRepository KnownCreaturesRepository;
 
         public bool useAlternativeSpawner = false;
         
         static CompositionRoot()
         {
+            KnownCreaturesRepository = new KnownCreaturesRepository();
             AlternativeEnemySpawner = new InstrumentedSpawner(
                 new EnemySpawnerDefault(),
                 new SpawnerLogger(
                     new AlternativeEnemyLogger(Debug.unityLogger),
                     new BossLogger(Debug.unityLogger)),
                 new SpawnerAnalytics(
-                    new AlternativeEnemyAnalyticsTracker(Debug.unityLogger),
-                    new BossAnalyticsTracker(Debug.unityLogger))
+                    new AlternativeEnemyAnalyticsTracker(Debug.unityLogger, KnownCreaturesRepository),
+                    new BossAnalyticsTracker(Debug.unityLogger, KnownCreaturesRepository))
             );
             EnemySpawner = new InstrumentedSpawner(
                 new EnemySpawnerDefault(),
@@ -40,8 +43,8 @@ namespace Tripledot.Adventure
                     new EnemyLogger(Debug.unityLogger),
                     new BossLogger(Debug.unityLogger)),
                 new SpawnerAnalytics(
-                    new EnemyAnalyticsTracker(Debug.unityLogger),
-                    new BossAnalyticsTracker(Debug.unityLogger))
+                    new EnemyAnalyticsTracker(Debug.unityLogger, KnownCreaturesRepository),
+                    new BossAnalyticsTracker(Debug.unityLogger, KnownCreaturesRepository))
             );
         }
 

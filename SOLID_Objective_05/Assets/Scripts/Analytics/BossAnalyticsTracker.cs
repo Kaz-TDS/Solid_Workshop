@@ -20,18 +20,18 @@ namespace Tripledot.Adventure.Analytics
     public class BossAnalyticsTracker : IBossAnalyticsTracker
     {
         private readonly ILogger logger;
-        private readonly HashSet<BossType> knownBossTypes;
-
+        private readonly IKnownCreaturesRepository knownCreatures;
+        
         private static readonly string LoggerTag = $"<b>{nameof(BossAnalyticsTracker)}</b>";
         
         private static readonly string NewBossType = $"<b><color=#A0CF59>NEW_BOSS_TYPE</color></b>";
         
         private static readonly string BossSpawned = $"<b><color=#CF59A4>BOSS_SPAWNED</color></b>";
-
-        public BossAnalyticsTracker(ILogger logger)
+        
+        public BossAnalyticsTracker(ILogger logger, IKnownCreaturesRepository knownCreaturesRepository)
         {
             this.logger = logger;
-            this.knownBossTypes = new HashSet<BossType>();
+            this.knownCreatures = knownCreaturesRepository;
         }
         public void TrackBoss(IBoss boss)
         {
@@ -41,10 +41,10 @@ namespace Tripledot.Adventure.Analytics
 
             var enemyType = EnemyUtilities.GetEnemyType(boss.EnemyType);
             var bossType = EnemyUtilities.GetBossType(boss.BossType);
-            if (!this.knownBossTypes.Contains(boss.BossType)) {
+            if (!this.knownCreatures.IsBossTypeKnown(boss.BossType)) {
                 // Track NewBossType event
                 this.logger.Log(LoggerTag, $"{NewBossType} - First encounter with an {enemyType} boss of the {bossType} variety.");
-                this.knownBossTypes.Add(boss.BossType);
+                this.knownCreatures.SetBossTypeAsKnown(boss.BossType);
             }
             // Track BossSpawned
             this.logger.Log(LoggerTag, $"{BossSpawned} - Spawned an {enemyType} boss of the {bossType} variety.");

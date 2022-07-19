@@ -32,7 +32,7 @@ Tracking and logging of IBoss spawning should remain the same.
 
 ## Objective 5
 
-Refactor analytics for enemy spawning so that a bosses count as Enemies for the purpose of the NEW_ENEMY_ENCOUNTERED event.    
+Refactor analytics for enemy spawning so that a bosses count as Enemies but only for the purpose of the NEW_ENEMY_ENCOUNTERED event.    
 So if an Orc boss is spawned and no Orc enemy was spawned before the NEW_ENEMY_ENCOUNTERED should also be logged.
 
 ## Objective 6
