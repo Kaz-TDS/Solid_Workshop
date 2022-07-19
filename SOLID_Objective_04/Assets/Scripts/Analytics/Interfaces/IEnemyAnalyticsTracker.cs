@@ -7,9 +7,12 @@
  * Kazimierz Luska (kazimierz.luska@tripledotstudios.com
  */
 
-namespace Tripledot.Adventure.Logging.Interfaces
+using Tripledot.Adventure.Enemies.Interfaces;
+
+namespace Tripledot.Adventure.Analytics.Interfaces
 {
-    public interface ISpawnerLogger : IBossLogger, IEnemyLogger
+    public interface IEnemyAnalyticsTracker
     {
+        void TrackEnemy(IEnemy enemy);
     }
 }

@@ -7,50 +7,54 @@
  * Kazimierz Luska (kazimierz.luska@tripledotstudios.com
  */
 
-using DefaultNamespace;
 using Tripledot.Adventure.Enums;
 using Tripledot.Adventure.Factories.Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class SpawnerButton : MonoBehaviour
+namespace Tripledot.Adventure
 {
-    public EnemyType enemyType;
-    public BossType bossType;
-
-    public CompositionRoot compositionRoot;
-
-    private IEnemySpawner spawner;
-
-    private void Start()
+    public class SpawnerButton : MonoBehaviour
     {
-        this.spawner = this.compositionRoot.EnemySpawner;
-    }
+        public EnemyType enemyType;
+        public BossType bossType;
 
-    public void SpawnEnemy()
-    {
-        this.spawner.SpawnEnemy(this.enemyType);
-    }
+        [FormerlySerializedAs("spawnerRepository")]
+        public CompositionRoot compositionRoot;
 
-    public void SpawnBoss()
-    {
-        switch (this.bossType) {
-            case BossType.Weak:
-                this.spawner.SpawnWeakBoss(this.enemyType);
-                break;
-            case BossType.Average:
-                this.spawner.SpawnAverageBoss(this.enemyType);
-                break;
-            case BossType.Strong:
-                this.spawner.SpawnStrongBoss(this.enemyType);
-                break;
-            default:
-                Debug.LogError("Unknown boss type requested");
-                break;
+        private IEnemySpawner spawner;
+
+        private void Start()
+        {
+            this.spawner = this.compositionRoot.GetEnemySpawner();
         }
-    }
 
-    public void SpawnRandomBossLevel()
-    {
-        this.spawner.SpawnRandomBoss(this.enemyType);
+        public void SpawnEnemy()
+        {
+            this.spawner.SpawnEnemy(this.enemyType);
+        }
+
+        public void SpawnBoss()
+        {
+            switch (this.bossType) {
+                case BossType.Weak:
+                    this.spawner.SpawnWeakBoss(this.enemyType);
+                    break;
+                case BossType.Average:
+                    this.spawner.SpawnAverageBoss(this.enemyType);
+                    break;
+                case BossType.Strong:
+                    this.spawner.SpawnStrongBoss(this.enemyType);
+                    break;
+                default:
+                    Debug.LogError("Unknown boss type requested");
+                    break;
+            }
+        }
+
+        public void SpawnRandomBossLevel()
+        {
+            this.spawner.SpawnRandomBoss(this.enemyType);
+        }
     }
 }

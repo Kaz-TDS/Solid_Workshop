@@ -7,13 +7,8 @@
  * Kazimierz Luska (kazimierz.luska@tripledotstudios.com
  */
 
-using Tripledot.Adventure.Enemies.Interfaces;
-
 namespace Tripledot.Adventure.Analytics.Interfaces
 {
-    public interface ISpawnerAnalytics
-    {
-        void TrackEnemy(IEnemy enemy);
-        void TrackBoss(IBoss boss);
-    }
+    public interface ISpawnerAnalytics : IEnemyAnalyticsTracker, IBossAnalyticsTracker
+    {}
 }

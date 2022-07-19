@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4214163910d4d4b0dbefbae1878587ed, type: 3}
   m_Name: CompositionRoot
   m_EditorClassIdentifier: 
+  useAlternativeSpawner: 0

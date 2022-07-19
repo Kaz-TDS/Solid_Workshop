@@ -9,27 +9,25 @@
 
 using Tripledot.Adventure.Enemies.Interfaces;
 using Tripledot.Adventure.Logging.Interfaces;
+using Tripledot.Adventure.Utilities;
+using UnityEngine;
 
 namespace Tripledot.Adventure.Logging
 {
-    public class SpawnerLogger : ISpawnerLogger
+    public class EnemyLogger : IEnemyLogger
     {
-        private readonly IEnemyLogger enemyLogger;
-        private readonly IBossLogger bossLogger;
+        private static readonly string LoggerTag = $"<b>{nameof(EnemyLogger)}</b>";
+        
+        private readonly ILogger logger;
 
-        public SpawnerLogger(IEnemyLogger enemyLogger, IBossLogger bossLogger)
+        public EnemyLogger(ILogger logger)
         {
-            this.enemyLogger = enemyLogger;
-            this.bossLogger = bossLogger;
+            this.logger = logger;
         }
         public void LogEnemy(IEnemy enemy)
         {
-            this.enemyLogger.LogEnemy(enemy);
-        }
-
-        public void LogBoss(IBoss boss)
-        {
-            this.bossLogger.LogBoss(boss);
+            var enemyType = EnemyUtilities.GetEnemyType(enemy.EnemyType);
+            this.logger.Log(LoggerTag, $"Spawned enemy of type: {enemyType}.");
         }
     }
 }
