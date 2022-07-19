@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 2
   bossType: 0
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &82287695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   bossType: 2
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &158994627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   bossType: 0
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &181634260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,6 +1235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   bossType: 0
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &722905414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1421,6 +1425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   bossType: 1
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &784567072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1570,6 +1575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   bossType: 2
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &829620667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1854,6 +1860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   bossType: 0
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &942795149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2087,6 +2094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   bossType: 1
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &975090845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2236,6 +2244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 2
   bossType: 0
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &1022520593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2385,6 +2394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   bossType: 0
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &1171089015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2939,6 +2949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 2
   bossType: 1
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &1281272833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3411,6 +3422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   bossType: 0
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &1449064843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3560,6 +3572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 2
   bossType: 0
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &1505749837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4310,6 +4323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   bossType: 0
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &1700620701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5727,6 +5741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 2
   bossType: 2
+  compositionRoot: {fileID: 11400000, guid: 15e0c0bf6d5b546dcbe4268048a230bd, type: 2}
 --- !u!114 &2057324919
 MonoBehaviour:
   m_ObjectHideFlags: 0
