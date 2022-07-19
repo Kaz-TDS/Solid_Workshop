@@ -27,13 +27,13 @@ namespace Tripledot.Adventure
   {
    switch (this.bossType) {
     case BossType.Weak:
-     this.spawner.SpawnMidBoss(this.enemyType);
+     this.spawner.SpawnWeakBoss(this.enemyType);
      break;
     case BossType.Average:
-     this.spawner.SpawnLevelBoss(this.enemyType);
+     this.spawner.SpawnAverageBoss(this.enemyType);
      break;
     case BossType.Strong:
-     this.spawner.SpawnBigBoss(this.enemyType);
+     this.spawner.SpawnStrongBoss(this.enemyType);
      break;
     default:
      Debug.LogError("Unknown boss type requested");
