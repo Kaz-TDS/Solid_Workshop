@@ -60,17 +60,17 @@ namespace DefaultNamespace
             }
         }
 
-        public IBoss SpawnMidBoss(EnemyType enemyType)
+        public IBoss SpawnWeakBoss(EnemyType enemyType)
         {
             return SpawnBoss(enemyType, BossType.Weak);
         }
 
-        public IBoss SpawnLevelBoss(EnemyType enemyType)
+        public IBoss SpawnAverageBoss(EnemyType enemyType)
         {
             return SpawnBoss(enemyType, BossType.Average);
         }
 
-        public IBoss SpawnBigBoss(EnemyType enemyType)
+        public IBoss SpawnStrongBoss(EnemyType enemyType)
         {
             return SpawnBoss(enemyType, BossType.Strong);
         }

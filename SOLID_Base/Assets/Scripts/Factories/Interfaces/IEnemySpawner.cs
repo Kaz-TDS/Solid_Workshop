@@ -15,9 +15,9 @@ namespace Tripledot.Adventure.Factories.Interfaces
     public interface IEnemySpawner
     {
         IEnemy SpawnEnemy(EnemyType enemyType);
-        IBoss SpawnMidBoss(EnemyType enemyType);
-        IBoss SpawnLevelBoss(EnemyType enemyType);
-        IBoss SpawnBigBoss(EnemyType enemyType);
+        IBoss SpawnWeakBoss(EnemyType enemyType);
+        IBoss SpawnAverageBoss(EnemyType enemyType);
+        IBoss SpawnStrongBoss(EnemyType enemyType);
         IBoss SpawnRandomBoss(EnemyType enemyType);
     }
 }
