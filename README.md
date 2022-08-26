@@ -1,6 +1,6 @@
 # Tripledot Client Engineering SOLID Workshop
 
-    Try to do as little work as possible to achive each of the objectives.
+    Try to do as little work as possible to achieve each of the objectives.
 
 ## Objective 1
 
