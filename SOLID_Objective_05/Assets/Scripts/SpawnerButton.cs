@@ -19,7 +19,6 @@ namespace Tripledot.Adventure
         public EnemyType enemyType;
         public BossType bossType;
 
-        [FormerlySerializedAs("spawnerRepository")]
         public CompositionRoot compositionRoot;
 
         private IEnemySpawner spawner;
